@@ -709,6 +709,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (center) document.body.classList.add('scene-focus-mobile');
     })();
 
+    // Mobile uniquement : masquer le bouton flottant "Sauvegarder" pour empêcher les modifications.
+    (function(){
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        const labelTargets = ['sauvegarder', 'sauvegarde', 'save'];
+        const isSaveButton = (el) => {
+            const txt = (el.textContent || '').trim().toLowerCase();
+            if (!txt) return false;
+            return labelTargets.some(label => txt.includes(label));
+        };
+
+        const hideSaveButtons = () => {
+            document.querySelectorAll('button, a, [role="button"]').forEach(el => {
+                if (!isSaveButton(el)) return;
+                const style = window.getComputedStyle(el);
+                const isFloating = style.position === 'fixed' || style.position === 'sticky';
+                if (!isFloating) return;
+                el.style.setProperty('display', 'none', 'important');
+                el.setAttribute('aria-hidden', 'true');
+            });
+        };
+
+        hideSaveButtons();
+        const observer = new MutationObserver(hideSaveButtons);
+        observer.observe(document.body, { childList: true, subtree: true });
+    })();
+
     // Particles
     (function(){
         const c = document.getElementById('particles');
