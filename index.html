@@ -6,33 +6,34 @@
     <title>Stage de Danse Bollywood – 18 Avril 2026 | Parvati India</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Smagww"></script>
     <style>
         :root {
-            --gold: #FFC200;
-            --gold-light: #FFD700;
-            --gold-dim: rgba(255,194,0,0.15);
-            --amber: #E07020;
-            --red: #C03010;
-            --red-dark: #8B2208;
-            --bg: #0D0500;
-            --bg2: #160A00;
-            --bg3: #1E0E00;
-            --card: rgba(22,10,0,0.88);
-            --white: #fff;
-            --ws: rgba(255,255,255,0.9);
-            --wm: rgba(255,255,255,0.62);
-            --font-h: 'Cinzel', Georgia, serif;
-            --font-b: 'Raleway', sans-serif;
+            --gold: #E7C98A;
+            --gold-light: #D9A63A;
+            --gold-dim: rgba(231,201,138,0.25);
+            --amber: #D9A63A;
+            --red: #8E123B;
+            --red-dark: #C93A73;
+            --bg: #FAF4EC;
+            --bg2: #F3E6D6;
+            --bg3: #FFF8F2;
+            --card: rgba(255,248,242,0.92);
+            --white: #1F2740;
+            --ws: rgba(31,39,64,0.9);
+            --wm: rgba(31,39,64,0.72);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font-script: 'Great Vibes', cursive;
+            --font-b: 'Poppins', sans-serif;
             --tf: 0.22s ease;
             --tm: 0.4s ease;
-            --glow: 0 0 35px rgba(255,194,0,0.35);
-            --shadow: 0 10px 50px rgba(0,0,0,0.65);
+            --glow: 0 0 35px rgba(201,58,115,0.22);
+            --shadow: 0 16px 45px rgba(31,39,64,0.16);
         }
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
-        body{font-family:var(--font-b);background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+        body{font-family:var(--font-b);background:linear-gradient(180deg,#FFF8F2 0%,#FAF4EC 40%,#F3E6D6 100%);color:var(--white);line-height:1.6;overflow-x:hidden}
         ::-webkit-scrollbar{width:5px}
         ::-webkit-scrollbar-track{background:var(--bg)}
         ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
@@ -269,6 +270,59 @@
         .soc.ws:hover{background:#25D366;border-color:#25D366;color:#fff}
         .soc.em:hover{background:var(--red);border-color:var(--red);color:#fff}
 
+        /* ===================== BOLLYWOOD POP OVERRIDES ===================== */
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(201,58,115,.22),rgba(78,195,217,.15),rgba(231,201,138,.2));z-index:1}
+        .hov{background:linear-gradient(180deg,rgba(255,248,242,.42) 0%,rgba(243,230,214,.75) 60%,rgba(250,244,236,.95) 100%)}
+        .hlogo img{filter:drop-shadow(0 10px 35px rgba(201,58,115,.3))}
+        .hinst,.hbi,.hcap,.hcap strong{color:#1F2740}
+        .hedition{color:#8E123B;background:rgba(232,201,211,.7);border-color:rgba(142,18,59,.25)}
+        .hband{background:rgba(255,248,242,.72);border:1px solid rgba(201,58,115,.25)}
+        .pp{background:rgba(201,58,115,.08);border-color:rgba(201,58,115,.28)}
+        .pp .am,.pp.ex .am{color:#8E123B}
+        .pp.ex{background:rgba(78,195,217,.12);border-color:rgba(78,195,217,.35)}
+        .btn-g{background:linear-gradient(135deg,#C93A73 0%,#8E123B 100%);color:#FFF8F2;box-shadow:0 8px 28px rgba(201,58,115,.35)}
+        .btn-o{border-color:#C93A73;color:#C93A73}
+        .btn-o:hover{background:#C93A73;color:#FFF8F2}
+        .stag{color:#8E123B}
+        .stitle{color:#1F2740}
+        .tg{color:#C93A73}
+        .orn-c{color:#D9A63A}
+        .orn-l{background:linear-gradient(90deg,transparent,#D9A63A)}
+        .orn-r{background:linear-gradient(90deg,#D9A63A,transparent)}
+        .about,.why,.insc,.notice,.prog,.reviews,.prev,.bcta{background:transparent}
+        .pillar,.wcard,.rcard,.ticket,.icard,.notinner,.cbox{background:rgba(255,248,242,.82);border-color:rgba(201,58,115,.18)}
+        .pillar h3,.wcard h3,.ntxt h4,.ins-name{color:#8E123B}
+        .ins-name span,.prev-title span,.bcta h2 span{background:linear-gradient(135deg,#C93A73,#8E123B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .instructor::before,.bcta::before{opacity:.08;mix-blend-mode:screen}
+        .btn-r{background:linear-gradient(135deg,#8E123B 0%,#C93A73 100%)}
+        .btn-map{border-color:rgba(31,39,64,.15);color:#1F2740}
+        .btn-map:hover{background:rgba(78,195,217,.15);color:#1F2740}
+        .soc{background:rgba(255,248,242,.8);border-color:rgba(31,39,64,.15);color:#1F2740}
+        .soc:hover{background:#D9A63A;border-color:#D9A63A;color:#1F2740}
+        .sbadge{color:#8E123B}
+        .dg{background:#4EC3D9;box-shadow:0 0 8px #4EC3D9}
+
+        /* ===================== MUSIQUE STAGE ===================== */
+        .music{padding:95px 0}
+        .music-card{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(201,58,115,.2)}
+        .music-bg{position:absolute;inset:0;background:
+            linear-gradient(115deg,rgba(255,248,242,.9) 10%,rgba(243,230,214,.68) 45%,rgba(201,58,115,.42) 100%),
+            url('https://parvati-india.fr/wp-content/uploads/2026/03/BG_STAGE_2026_AVRIL.jpg') center/cover no-repeat}
+        .music-card::after{content:'';position:absolute;left:-10%;right:-10%;bottom:-80px;height:210px;background:radial-gradient(circle at center,rgba(255,248,242,.95),rgba(255,248,242,0));pointer-events:none}
+        .music-content{position:relative;z-index:1;padding:52px 48px;color:#1F2740}
+        .music-kicker{display:inline-block;background:rgba(78,195,217,.22);color:#1F2740;border:1px solid rgba(78,195,217,.45);border-radius:999px;padding:8px 18px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+        .music-title{font-family:var(--font-script);font-size:clamp(2.5rem,7vw,4.2rem);font-weight:400;color:#C93A73;line-height:1;margin-bottom:10px}
+        .music-sub{font-family:var(--font-h);font-size:1.18rem;color:#8E123B;margin-bottom:24px}
+        .music-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+        .mitem{background:rgba(255,248,242,.86);border:1px solid rgba(31,39,64,.13);border-radius:14px;padding:15px 16px}
+        .mitem h4{font-size:.95rem;color:#8E123B;margin-bottom:6px}
+        .mitem p{font-size:.88rem;color:#1F2740;line-height:1.6}
+        .mnote{margin-top:16px;padding:14px 16px;border-left:3px solid #D9A63A;background:rgba(231,201,138,.2);border-radius:9px;font-size:.91rem}
+        @media(max-width:768px){
+            .music-content{padding:34px 24px}
+            .music-grid{grid-template-columns:1fr}
+        }
+
         /* ===================== RESPONSIVE ===================== */
         @media(max-width:1024px){
             .ins-wrap{grid-template-columns:1fr;gap:48px}
@@ -441,6 +495,42 @@
                 <div class="pdis"><div class="pt">Enfant</div><div class="pb">12€</div><div class="pn">6 à 15 ans</div></div>
                 <div class="tdiv"></div>
                 <div class="tcap"><strong>25 personnes</strong>max. – places limitées</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MUSIQUE DU STAGE -->
+<section class="music" id="musique-stage">
+    <div class="container">
+        <span class="stag">Ambiance musicale</span>
+        <h2 class="stitle">Le son du stage : <span class="tg">Sauda Khara Khara</span></h2>
+        <div class="orn"><span class="orn-l"></span><span class="orn-c">🎬</span><span class="orn-r"></span></div>
+        <div class="music-card rv">
+            <div class="music-bg" role="img" aria-label="Ambiance Bollywood lumineuse et festive"></div>
+            <div class="music-content">
+                <span class="music-kicker">Bollywood pop premium</span>
+                <h3 class="music-title">Sauda Khara Khara</h3>
+                <p class="music-sub">Good Newwz (2019) · Remix d’un classique Punjabi culte.</p>
+                <div class="music-grid">
+                    <div class="mitem">
+                        <h4>🎤 Artistes</h4>
+                        <p>Diljit Dosanjh, Sukhbir et Dhvani Bhanushali — un mélange de voix Punjabi traditionnelle et de pop Bollywood moderne.</p>
+                    </div>
+                    <div class="mitem">
+                        <h4>🎶 Style & énergie</h4>
+                        <p>Bhangra / Pop Bollywood / Dance, BPM rapide, dhol, basses électroniques et synthés pour une vibe ultra festive.</p>
+                    </div>
+                    <div class="mitem">
+                        <h4>💃 Vibe chorégraphique</h4>
+                        <p>Danse Punjabi + Bollywood, énergie élevée, parfaite pour un esprit mariage, soirée et célébration de groupe.</p>
+                    </div>
+                    <div class="mitem">
+                        <h4>🧠 Signification</h4>
+                        <p>“Sauda Khara Khara” évoque un deal authentique. Dans le morceau, c’est utilisé de manière playful autour du charme et de la séduction.</p>
+                    </div>
+                </div>
+                <p class="mnote">Pourquoi ça marche : nostalgie d’un hit culte + hook mémorable + production actuelle. Un vrai <strong>banger</strong> pour danser, performer et briller sur scène.</p>
             </div>
         </div>
     </div>
