@@ -709,6 +709,60 @@ document.addEventListener('DOMContentLoaded', function () {
         if (center) document.body.classList.add('scene-focus-mobile');
     })();
 
+    // Téléphone uniquement : masquer le bouton flottant "Sauvegarder".
+    (function(){
+        if (!window.matchMedia('(max-width: 767px)').matches) return;
+
+        const labelTargets = ['sauvegarder', 'sauvegarde', 'save'];
+        const saveSelectors = [
+            '.save-fab',
+            '.fab-save',
+            '.floating-save',
+            '.floating-save-btn',
+            '.save-floating-btn',
+            '.btn-save-floating',
+            '.save-button-floating',
+            '[data-action="save"].floating',
+            '[data-role="save-floating"]',
+            'button[aria-label*="sauveg" i]',
+            'button[title*="sauveg" i]'
+        ];
+
+        const isSaveButton = (el) => {
+            const txt = (el.textContent || '').trim().toLowerCase();
+            return labelTargets.some(label => txt.includes(label));
+        };
+
+        const isFloatingElement = (el) => {
+            const style = window.getComputedStyle(el);
+            return style.position === 'fixed' || style.position === 'sticky';
+        };
+
+        const hideElement = (el) => {
+            if (!el) return;
+            el.style.setProperty('display', 'none', 'important');
+            el.style.setProperty('visibility', 'hidden', 'important');
+            el.style.setProperty('pointer-events', 'none', 'important');
+            el.setAttribute('aria-hidden', 'true');
+        };
+
+        const hideSaveButtons = () => {
+            // Ciblage par sélecteurs connus
+            document.querySelectorAll(saveSelectors.join(',')).forEach(hideElement);
+
+            // Fallback robuste: texte + position flottante
+            document.querySelectorAll('button, a, [role="button"]').forEach((el) => {
+                if (!isSaveButton(el)) return;
+                if (!isFloatingElement(el)) return;
+                hideElement(el);
+            });
+        };
+
+        hideSaveButtons();
+        const observer = new MutationObserver(hideSaveButtons);
+        observer.observe(document.body, { childList: true, subtree: true });
+    })();
+
     // Particles
     (function(){
         const c = document.getElementById('particles');
