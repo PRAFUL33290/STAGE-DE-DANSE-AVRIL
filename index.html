@@ -345,11 +345,56 @@
             .hband{flex-direction:column;border-radius:20px}
             .hbi:not(:last-child){border-right:none;border-bottom:1px solid rgba(255,194,0,.15)}
             .notinner{flex-direction:column;text-align:center}
+
+            /* Vue mobile "scène dynamique" : on force la colonne centrale en plein écran */
+            body.scene-focus-mobile{overflow:hidden}
+            .stage-layout{display:block}
+            .stage-layout>.stage-side,
+            .stage-layout>.left-column,
+            .stage-layout>.right-column,
+            .stage-layout>.col-left,
+            .stage-layout>.col-right,
+            .stage-layout>.panel-left,
+            .stage-layout>.panel-right{display:none!important}
+            .stage-layout>.stage-center,
+            .stage-layout>.center-column,
+            .stage-layout>.middle-column,
+            .stage-layout>.col-middle,
+            .stage-layout>.scene-column{
+                position:fixed;
+                inset:0;
+                width:100vw!important;
+                max-width:none!important;
+                min-height:100dvh;
+                height:100dvh;
+                margin:0!important;
+                border-radius:0!important;
+                z-index:999;
+            }
         }
         @media(max-width:480px){
             .hprices{flex-direction:column;align-items:center}
             .tgrid{grid-template-columns:1fr}
             .iprices{grid-template-columns:1fr}
+        }
+
+        /* Téléphone uniquement (pas tablette) : cacher le bouton flottant de sauvegarde */
+        @media(max-width:767px){
+            .save-fab,
+            .fab-save,
+            .floating-save,
+            .floating-save-btn,
+            .save-floating-btn,
+            .btn-save-floating,
+            .save-button-floating,
+            [data-action="save"].floating,
+            [data-role="save-floating"],
+            button[aria-label*="sauveg" i],
+            button[title*="sauveg" i]{
+                display:none!important;
+                visibility:hidden!important;
+                pointer-events:none!important;
+            }
         }
     </style>
 </head>
@@ -674,6 +719,38 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // Mobile : si une scène en 3 colonnes existe, mettre la colonne centrale en plein écran.
+    (function(){
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        const layout = document.querySelector('.stage-layout');
+        if (!layout) return;
+        const center = layout.querySelector('.stage-center, .center-column, .middle-column, .col-middle, .scene-column');
+        if (center) document.body.classList.add('scene-focus-mobile');
+    })();
+
+    // Téléphone uniquement : masquer le bouton flottant "sauvegarder".
+    (function(){
+        if (!window.matchMedia('(max-width: 767px)').matches) return;
+        const saveSelectors = [
+            '.save-fab',
+            '.fab-save',
+            '.floating-save',
+            '.floating-save-btn',
+            '.save-floating-btn',
+            '.btn-save-floating',
+            '.save-button-floating',
+            '[data-action="save"].floating',
+            '[data-role="save-floating"]',
+            'button[aria-label*="sauveg" i]',
+            'button[title*="sauveg" i]'
+        ];
+        document.querySelectorAll(saveSelectors.join(',')).forEach((el) => {
+            el.style.display = 'none';
+            el.style.visibility = 'hidden';
+            el.style.pointerEvents = 'none';
+        });
+    })();
+
     // Particles
     (function(){
         const c = document.getElementById('particles');
